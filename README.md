@@ -2,6 +2,9 @@
 
 Atividades de estudos e modelagem no banco de dados.
 
+## Exemplo de Modelagem Lógica
+![Modelo lógico do sistema de Vendas](criação-modelos-venda.png)
+
 ## Sobre tipos de relacionamento.
 
 ### 1:1
