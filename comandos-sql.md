@@ -32,3 +32,7 @@ CREATE TABLE produtos(
     fabricante_id INT NOT NULL
 );
 ```
+
+```sql
+DESC produtos;
+```
