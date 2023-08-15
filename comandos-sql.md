@@ -55,4 +55,58 @@ ALTER TABLE produtos
 
 ```sql
 ALTER TABLE fabricantes RENAME TO fornecedores;
+ALTER TABLE fornecedores RENAME TO fabricantes;
+```
+
+### Modificar colunas
+
+```sql
+ALTER TABLE produtos
+    MODIFY COLUMN preco INT NULL;
+
+ALTER TABLE produtos
+    MODIFY COLUMN preco DECIMAL(6,2) NOT NULL;
+```
+
+### Renomear colunas
+
+```sql
+
+ALTER TABLE fabricantes
+    CHANGE nome nome_do_fabricante VARCHAR(20) NOT NULL;
+
+ALTER TABLE fabricantes
+    CHANGE nome_do_fabricante nome VARCHAR(20) NOT NULL;
+```
+
+### Adicionar coluna
+
+```sql
+ALTER TABLE produtos
+    ADD quantidade INT NULL AFTER preco;
+```
+
+
+<!-- EXERCÍCIO -->
+
+```sql
+CREATE DATABASE exericios CHARACTER SET utf8mb4;
+
+CREATE TABLE generos(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45) NOT NULL 
+);
+
+CREATE TABLE filmes(
+    id INT NOT NULL,
+    titulo VARCHAR(45) NOT NULL,
+    ano YEAR,
+);
+
+ALTER TABLE filmes ADD generos_id INT NULL;
+
+ALTER TABLE filmes
+	ADD CONSTRAINT fk_filmes_generos
+    
+    FOREIGN KEY (generos_id) REFERENCES generos(id);
 ```
