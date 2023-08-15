@@ -98,9 +98,9 @@ CREATE TABLE generos(
 );
 
 CREATE TABLE filmes(
-    id INT NOT NULL,
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(45) NOT NULL,
-    ano YEAR,
+    ano YEAR(4) NOT NULL,
 );
 
 ALTER TABLE filmes ADD generos_id INT NULL;
