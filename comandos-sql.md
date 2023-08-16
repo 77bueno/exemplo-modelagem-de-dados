@@ -91,22 +91,27 @@ ALTER TABLE produtos
 
 ```sql
 CREATE DATABASE exericios CHARACTER SET utf8mb4;
+-- Criando o banco de dados
 
 CREATE TABLE generos(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45) NOT NULL 
 );
+-- Criando a tabela generos, com id e nome
 
 CREATE TABLE filmes(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(45) NOT NULL,
     ano YEAR(4) NOT NULL,
 );
+-- Criando a tabela filmes
 
 ALTER TABLE filmes ADD generos_id INT NULL;
+-- Adicionando uma coluna chamada genero_id
 
 ALTER TABLE filmes
 	ADD CONSTRAINT fk_filmes_generos
     
     FOREIGN KEY (generos_id) REFERENCES generos(id);
+-- Dizendo que generos_id é uma chave estrangeira, e referenciando a chave primária de generos e seu id.
 ```
