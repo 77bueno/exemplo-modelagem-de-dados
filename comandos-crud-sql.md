@@ -108,3 +108,31 @@ INSERT INTO produtos(
     7
 );
 ```
+
+---
+
+
+## SELECT
+
+```sql
+SELECT * FROM produtos;
+
+SELECT nome, preco FROM produtos;
+SELECT preco, nome FROM produtos;
+
+SELECT nome, preco, quantidade FROM produtos WHERE preco < 5000;
+
+-- Mostre nome e descrição somente dos PRodutos da Apple
+
+SELECT nome, descricao FROM produtos WHERE fabricante_id = 2;
+```
+
+### Operadores Lógicos: E, OU, NÃO
+
+```sql
+SELECT nome, preco FROM produtos WHERE preco >= 2000 AND preco <= 6000;
+
+-- A query abaixo não retorna registros
+-- já que as condições não foram totalmente atendidas.
+SELECT nome, preco FROM produtos WHERE preco > 5000 AND preco <= 6000;
+```
