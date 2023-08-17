@@ -129,10 +129,26 @@ SELECT nome, descricao FROM produtos WHERE fabricante_id = 2;
 
 ### Operadores Lógicos: E, OU, NÃO
 
+#### Operador E
+
 ```sql
 SELECT nome, preco FROM produtos WHERE preco >= 2000 AND preco <= 6000;
 
 -- A query abaixo não retorna registros
 -- já que as condições não foram totalmente atendidas.
 SELECT nome, preco FROM produtos WHERE preco > 5000 AND preco <= 6000;
+```
+
+```sql
+SELECT nome, preco FROM produtos WHERE preco > 5000 OR preco <= 6000;
+
+-- Exiba nome e preço somente dos produtos da Apple e da Samsung
+SELECT nome, preco FROM produtos WHERE fabricante_id = 2 OR fabricante_id = 5;
+```
+
+
+#### Operador NÃO
+
+```sql
+SELECT nome, descricao, preco FROM produtos WHERE NOT fabricante_id = 8;
 ```
