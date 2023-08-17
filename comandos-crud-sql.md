@@ -163,3 +163,17 @@ SELECT nome, descricao, preco FROM produtos WHERE NOT fabricante_id = 8;
 SELECT nome, descricao, preco FROM produtos WHERE fabricante_id != 8;
 ```
 
+### UPDATE
+
+```sql
+UPDATE fabricantes SET nome 'Asus o Brasil'
+WHERE id = 1; -- ☠️ PERIGO! NÃO SE ESQUEÇA DA CONDIÇÃO (WHERE NESSE CASO) ☠️
+
+UPDATE produtos SET preco = 6549.74
+WHERE id = 1;
+
+-- Altere a quantidade dos produtos da Apple e da Samsung 
+-- para 20.
+ 
+UPDATE produtos SET quantidade = 20 WHERE fabricante_id = 2 OR fabricante_id = 5;
+```
