@@ -177,3 +177,34 @@ WHERE id = 1;
  
 UPDATE produtos SET quantidade = 20 WHERE fabricante_id = 2 OR fabricante_id = 5;
 ```
+
+### DELETE
+
+```sql
+-- ☠️ PERIGO! NÃO SE ESQUEÇA DA CONDIÇÃO (WHERE NESSE CASO) ☠️
+DELETE FROM fabricantes WHERE id = 6; 
+
+-- A query abaixo NÃO FUNCIONA, devido à restrição
+-- de chave estrangeira/relacionamento, ou seja,
+-- existem produtos associados ao fabricante 3 (Apple)
+-- DELETE FROM fabricantes WHERE id = 3;
+```
+
+--- 
+
+
+## SELECT: outras formas de uso
+
+### Classificando
+
+```sql
+SELECT nome, preco FROM produtos ORDER BY nome;
+SELECT nome, preco FROM produtos ORDER BY preco;
+SELECT nome, preco FROM produtos ORDER BY preco DESC;
+
+-- DESC: Classificação em ordem decrescente
+-- ASC (padrão): classificação em ordem crescente
+
+SELECT nome, preco FROM produtos
+WHERE quantidade = 20 ORDER BY nome;
+```
