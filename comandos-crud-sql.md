@@ -208,3 +208,15 @@ SELECT nome, preco FROM produtos ORDER BY preco DESC;
 SELECT nome, preco FROM produtos
 WHERE quantidade = 20 ORDER BY nome;
 ```
+
+### Busca de dados
+
+```sql
+SELECT nome, descricao FROM produtos WHERE descricao LIKE '%tela%' OR nome LIKE '%tela%';
+
+-- Usamos o operador LIKE e o caractere coringa %
+-- para permitir uma busca da palavra indicada em 
+-- qualquer posição dentro do texto. Neste contexto,
+-- o % significa 'qualquer texto' antes da palavra ou
+-- depois da palavra.
+```
