@@ -151,4 +151,7 @@ SELECT nome, preco FROM produtos WHERE fabricante_id = 2 OR fabricante_id = 5;
 
 ```sql
 SELECT nome, descricao, preco FROM produtos WHERE NOT fabricante_id = 8;
+
+-- Versão usando operador relacional "diferença/diferente"
+SELECT nome, descricao, preco FROM produtos WHERE fabricante_id != 8;
 ```
