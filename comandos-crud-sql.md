@@ -139,13 +139,17 @@ SELECT nome, preco FROM produtos WHERE preco >= 2000 AND preco <= 6000;
 SELECT nome, preco FROM produtos WHERE preco > 5000 AND preco <= 6000;
 ```
 
+####  Operador OU
+
 ```sql
 SELECT nome, preco FROM produtos WHERE preco > 5000 OR preco <= 6000;
 
 -- Exiba nome e preço somente dos produtos da Apple e da Samsung
 SELECT nome, preco FROM produtos WHERE fabricante_id = 2 OR fabricante_id = 5;
-```
 
+-- Versão usando a função IN()
+SELECT nome, preco FROM produtos WHERE fabricante_id IN(3, 5);
+```
 
 #### Operador NÃO
 
