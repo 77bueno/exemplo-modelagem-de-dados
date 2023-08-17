@@ -91,4 +91,20 @@ VALUES(
 );
 ```
 
-1,2,3,5,7
+```SQL
+INSERT INTO produtos(
+    nome, descricao, preco, quantidade, fabricante_id
+) VALUES (
+    'Xbox Series S',
+    'Velocidade e desempenho de última geração.',
+    1997,
+    5,
+    8
+), (
+    'Notebook Motion',
+    'Intel Dual Core 4GB de RAM, 128GB SSD e Tela 14,1 polegadas',
+    1213.65,
+    8,
+    7
+);
+```
