@@ -225,21 +225,21 @@ SELECT nome, descricao FROM produtos WHERE descricao LIKE '%tela%' OR nome LIKE 
 
 ```sql
 SELECT SUM(preco) FROM produtos; -- soma
-SELECT SUM(preco) as Total FROM produtos; -- alias/apelido
+SELECT SUM(preco) AS Total FROM produtos; -- alias/apelido
 
 -- Exemplo de alias/apelido para outras colunas.
-SELECT nome as Produto, preco as "Preço" FROM produtos; 
+SELECT nome AS Produto, preco AS "Preço" FROM produtos; 
 SELECT nome Produto, preco "Preço" FROM produtos; 
 
 -- MÉDIA e ARREDONDAMENTO
-SELECT AVG(preco) as "Média dos Preços" FROM produtos; 
-SELECT ROUND(AVG(preco), 2) as "Média dos Preços" FROM produtos;
+SELECT AVG(preco) AS "Média dos Preços" FROM produtos; 
+SELECT ROUND(AVG(preco), 2) AS "Média dos Preços" FROM produtos;
 
 -- CONTAGEM
-SELECT COUNT(id) as "Qtd de Produtos" FROM produtos;
+SELECT COUNT(id) AS "Qtd de Produtos" FROM produtos;
 
 
-SELECT COUNT(DISTINCT fabricante_id) as "Qtd de Fabricantes com Produtos" FROM produtos;
+SELECT COUNT(DISTINCT fabricante_id) AS "Qtd de Fabricantes com Produtos" FROM produtos;
 
 -- DISTINCT é uma cláusula/flag que evita a duplicidade
 -- na contagem de registros.
@@ -248,7 +248,7 @@ SELECT COUNT(DISTINCT fabricante_id) as "Qtd de Fabricantes com Produtos" FROM p
 ### Operações matemáticas
 
 ```sql
-SELECT nome, preco, quantidade, (preco * quantidade) as Total
+SELECT nome, preco, quantidade, (preco * quantidade) AS Total
 FROM produtos; 
 ```
 
@@ -256,4 +256,50 @@ FROM produtos;
 
 ```sql
 SELECT fabricante_id, SUM(preco) FROM produtos GROUP BY fabricante_id;
+```
+
+---
+
+## Consultas (Queries) em duas ou mais tabelas relacionadas (JUNÇÃO/JOIN)
+
+### Exibir nome do produto e nome do fabricante
+
+```sql
+-- SELECT tabela.coluna, tabela.coluna
+SELECT produtos.nome, fabricantes.nome 
+
+-- INNER JOIN é o comando que permite JUNTAR as tabelas
+FROM produtos INNER JOIN fabricantes
+
+-- ON comando para indicar a forma/critério da junção
+ON produtos.fabricante_id = fabricantes.id;
+
+
+SELECT produtos.nome AS Produto, fabricantes.nome AS Fabricante 
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id;
+```
+
+### Nome do produto, nome do fabricante, ordenados pelo nome do produto
+
+```sql
+SELECT
+    produtos.nome AS Produto,
+    fabricantes.nome AS Fabricante
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+ORDER BY Produto; -- ou produtos.nome
+```
+
+### Fabricante, soma dos preços e quantidade de produtos
+
+```sql
+SELECT
+    fabricantes.nome AS Fabricante,
+    SUM(produtos.preco) AS Total,
+    COUNT(produtos.fabricante_id) AS "Qtd de Produtos"
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+GROUP BY Fabricante
+ORDER BY Total;
 ```
