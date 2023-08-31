@@ -122,7 +122,7 @@ SELECT preco, nome FROM produtos;
 
 SELECT nome, preco, quantidade FROM produtos WHERE preco < 5000;
 
--- Mostre nome e descrição somente dos PRodutos da Apple
+-- Mostre nome e descrição somente dos Produtos da Apple
 
 SELECT nome, descricao FROM produtos WHERE fabricante_id = 2;
 ```
