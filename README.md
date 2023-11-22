@@ -1,4 +1,4 @@
-# Modelagem Lògica usando MySQL Workbench 
+# Modelagem Lógica usando MySQL Workbench 
 
 Atividades de estudos e modelagem no banco de dados.
 
